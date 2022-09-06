@@ -1,0 +1,57 @@
+<style>
+    .name {
+        position: absolute;
+        top: 470px;
+        left: 450px;
+        transform: translate(-50%, -50%);
+        font-family: "Bradley Hand ITC", cursive;
+        opacity: 60%;
+        color: #111111;
+        text-align: left;
+        font-size: 2em;
+        z-index: 1000;
+    }
+
+    .date {
+        position: absolute;
+        top: 470px;
+        left: 700px;
+        transform: translate(-50%, -50%);
+        font-family: "Bradley Hand ITC", cursive;
+        opacity: 60%;
+        color: #111111;
+        text-align: left;
+        font-size: 2em;
+        z-index: 1000;
+    }
+
+    .rat {
+        position: absolute;
+        width: 800px;
+        left: 200px;
+        transform: rotate(90deg);
+    }
+</style>
+
+<div class="container">
+    <img src="rat.jpg" alt="Snow" class="rat">
+    <div id="name" class="name"></div>
+    <div id="date" class="date"></div>
+</div>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name')
+    document.getElementById('name').innerHTML = name;
+
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; // Months start at 0!
+    let dd = today.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    const formattedToday = dd + '/' + mm;
+    document.getElementById('date').innerHTML = formattedToday;
+</script>
